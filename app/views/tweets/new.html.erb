@@ -1,0 +1,5 @@
+<h2>Post a Tweet</h2>
+<%= form_with url: tweets_path, method: :post do |f| %>
+  <%= f.text_area :tweet, placeholder: "What's happening?" %>
+  <%= f.submit "Tweet" %>
+<% end %>

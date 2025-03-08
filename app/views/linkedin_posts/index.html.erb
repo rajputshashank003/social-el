@@ -1,0 +1,29 @@
+<h1>Post to LinkedIn</h1>
+
+<%= form_with url: linkedin_posts_path, method: :post do %>
+  <div>
+    <%= label_tag :post_content, "Enter your post:" %><br>
+    <%= text_area_tag :post_content, nil, rows: 5, cols: 40 %>
+  </div>
+  <br>
+  <%= submit_tag "Post to LinkedIn" %>
+<% end %>
+
+<% if session[:linkedin_token] %>
+  <p>✅ You are logged in with LinkedIn!</p>
+  <%= button_to "Logout", logout_path, method: :delete %>
+<% else %>
+  <%= link_to "Login with LinkedIn", "/auth/linkedin", class: "button" %>
+<% end %>
+
+<% if flash[:notice] %>
+  <p style="color: green;"><%= flash[:notice] %></p>
+<% end %>
+
+<% if flash[:alert] %>
+  <p style="color: red;"><%= flash[:alert] %></p>
+<% end %>
+<br>
+<br>
+<br>
+<%= link_to "Post to Twitter", new_tweet_path, class: "button", style: "background-color: #1DA1F2; color: white; padding: 10px; border-radius: 5px; text-decoration: none;" %>

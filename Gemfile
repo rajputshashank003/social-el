@@ -61,3 +61,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "omniauth-linkedin-oauth2", "~> 1.0"
+
+gem "dotenv-rails", "~> 3.1"
+gem 'twitter'
+gem 'omniauth-twitter'
